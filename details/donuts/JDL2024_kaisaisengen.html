@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>作品タイトル | nnnnbbbb-portfolio</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+			integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+
+		<link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
+	</head>
+	<body>
+		<header>
+			<div class="header-container">
+				<nav class="header-nav">
+					<a href="../../profile.html">PROFILE</a>
+					<a href="../../works.html">WORKS</a>
+					<a href="../../others.html">OTHERS</a>
+				</nav>
+			</div>
+		</header>
+
+		<main class="detail-container container">
+			<section class="detail-block">
+				<div class="detail-media">
+					<img
+						src="../../images/donuts/JDL2024 kaisaisengen/JDL2024_kaisaisengen.png"
+						alt="作品画像"
+					/>
+				</div>
+
+				<div class="detail-info">
+					<h1>JDL2024 開催宣言</h1>
+					<!-- <p class="detail-category">DONUTS / Graphic Design</p> -->
+
+					<table class="detail-table">
+						<tr>
+							<th>制作時期</th>
+							<td>2023年12月</td>
+						</tr>
+						<tr>
+							<th>使用ツール</th>
+							<td>Adobe Illustrator, Adobe Photoshop</td>
+						</tr>
+						<tr>
+							<th>用途</th>
+							<td>Instagram投稿用</td>
+						</tr>
+						<tr>
+							<th>担当/役割</th>
+							<td>JDL2024宣伝美術/デザイン</td>
+						</tr>
+					</table>
+				</div>
+			</section>
+
+			<section class="detail-block is-text-only">
+				<div class="detail-info">
+					<div class="detail-description">
+						<p>
+							JDLの開催宣言やチケット告知などをInstagramに投稿する際のサムネ用に作成した画像。
+							メインのフォントは「Rufina
+							Stencil」のレギュラーサイズ。英数字限定のフォントだったので、漢字の「月・祝」の文字はそれっぽく自作しました。
+							背景の写真はJDL2023の公演より拝借。
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- WORKSに戻るボタン -->
+			<div class="back-to-works">
+				<a href="../../works.html#donuts" class="btn-back"
+					><i class="fa-solid fa-arrow-left"></i> WORKS</a
+				>
+			</div>
+		</main>
+
+		<footer>
+			<div class="container">
+				<nav>
+					<a href="../../profile.html">PROFILE</a>
+					<a href="../../works.html">WORKS</a>
+					<a href="../../others.html">OTHERS</a>
+				</nav>
+				<div class="footer-icons">
+					<a href="https://twitter.com" class="icon"
+						><span class="fa-brands fa-x-twitter"></span
+					></a>
+					<a href="https://instagram.com" class="icon"
+						><span class="fa-brands fa-instagram"></span
+					></a>
+					<a href="https://pixiv.net" class="icon"><span class="fa-brands fa-pixiv"></span></a>
+				</div>
+				<p>&copy; 2026 SATO NOBU</p>
+			</div>
+		</footer>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const grids = document.querySelectorAll('.detail-media-grid');
+
+				grids.forEach((grid) => {
+					const images = grid.querySelectorAll('img');
+					images.forEach((img) => {
+						// 画像の本来の比率を計算して適用する関数
+						const setRatio = () => {
+							// 計算式：(横幅 ÷ 縦幅) を算出して flex-grow に設定！
+							const ratio = img.naturalWidth / img.naturalHeight;
+							img.style.flexGrow = ratio;
+
+							// 完璧に高さを揃えるためにCSSのアスペクト比にも設定
+							img.style.aspectRatio = ratio;
+						};
+
+						// 画像が既に読み込まれていればすぐ実行、まだなら読み込みを待ってから実行
+						if (img.complete) {
+							setRatio();
+						} else {
+							img.addEventListener('load', setRatio);
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

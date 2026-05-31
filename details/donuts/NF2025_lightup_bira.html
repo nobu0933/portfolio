@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>作品タイトル | nnnnbbbb-portfolio</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+			integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+
+		<link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
+	</head>
+	<body>
+		<header>
+			<div class="header-container">
+				<nav class="header-nav">
+					<a href="../../profile.html">PROFILE</a>
+					<a href="../../works.html">WORKS</a>
+					<a href="../../others.html">OTHERS</a>
+				</nav>
+			</div>
+		</header>
+
+		<main class="detail-container container">
+			<section class="detail-block">
+				<div class="detail-media">
+					<img
+						src="../../images/donuts/NF2025 lightup bira/lightup bira front.png"
+						alt="作品画像"
+					/>
+				</div>
+
+				<div class="detail-info">
+					<h1>NF2025 ライトアップ ビラ</h1>
+					<!-- <p class="detail-category">DONUTS / Graphic Design</p> -->
+
+					<table class="detail-table">
+						<tr>
+							<th>制作時期</th>
+							<td>2025年10月</td>
+						</tr>
+						<tr>
+							<th>使用ツール</th>
+							<td>Adobe Illustrator, Adobe Photoshop</td>
+						</tr>
+						<tr>
+							<th>用途</th>
+							<td>ビラ・SNS掲載</td>
+						</tr>
+						<tr>
+							<th>担当/役割</th>
+							<td>NF2025ライトアップ/デザイン・印刷データ作成・発注</td>
+						</tr>
+					</table>
+				</div>
+			</section>
+
+			<section class="detail-block is-reverse">
+				<div class="detail-media">
+					<img src="../../images/donuts/NF2025 lightup bira/lightup bira back.png" />
+				</div>
+				<div class="detail-info">
+					<div class="detail-description">
+						<p>
+							NF2025ライトアップパフォーマンスの宣伝用ビラ。 B5サイズの紙面に印刷し、NFで配布。
+							X(旧Twitter)にも投稿。
+						</p>
+						<p>
+							パフォーマンスの使用曲「Flash(Pafume)」に合わせて、モチーフにはカメラの絞りを選びました。パフォーマーの人数に合わせて8枚羽根です。
+						</p>
+						<p>
+							黒色はリッチブラックで印刷してもらったので、ものすごく黒い仕上がりに。裏面から強い光をあてると白い光の筋がいい感じに透けます。
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="detail-block is-gallery">
+				<div class="detail-info">
+					<div class="detail-description">
+						<p>Instagram投稿の画像も作成。</p>
+					</div>
+				</div>
+				<div class="detail-media-grid size-lg">
+					<img src="../../images/donuts/NF2025 lightup bira/lightup bira SNS.png" />
+				</div>
+			</section>
+
+			<!-- WORKSに戻るボタン -->
+			<div class="back-to-works">
+				<a href="../../works.html#donuts" class="btn-back"
+					><i class="fa-solid fa-arrow-left"></i> WORKS</a
+				>
+			</div>
+		</main>
+
+		<footer>
+			<div class="container">
+				<nav>
+					<a href="../../profile.html">PROFILE</a>
+					<a href="../../works.html">WORKS</a>
+					<a href="../../others.html">OTHERS</a>
+				</nav>
+				<div class="footer-icons">
+					<a href="https://twitter.com" class="icon"
+						><span class="fa-brands fa-x-twitter"></span
+					></a>
+					<a href="https://instagram.com" class="icon"
+						><span class="fa-brands fa-instagram"></span
+					></a>
+					<a href="https://pixiv.net" class="icon"><span class="fa-brands fa-pixiv"></span></a>
+				</div>
+				<p>&copy; 2026 SATO NOBU</p>
+			</div>
+		</footer>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const grids = document.querySelectorAll('.detail-media-grid');
+
+				grids.forEach((grid) => {
+					const images = grid.querySelectorAll('img');
+					images.forEach((img) => {
+						// 画像の本来の比率を計算して適用する関数
+						const setRatio = () => {
+							// 計算式：(横幅 ÷ 縦幅) を算出して flex-grow に設定！
+							const ratio = img.naturalWidth / img.naturalHeight;
+							img.style.flexGrow = ratio;
+
+							// 完璧に高さを揃えるためにCSSのアスペクト比にも設定
+							img.style.aspectRatio = ratio;
+						};
+
+						// 画像が既に読み込まれていればすぐ実行、まだなら読み込みを待ってから実行
+						if (img.complete) {
+							setRatio();
+						} else {
+							img.addEventListener('load', setRatio);
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>作品タイトル | nnnnbbbb-portfolio</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+			integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+
+		<link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
+	</head>
+	<body>
+		<header>
+			<div class="header-container">
+				<nav class="header-nav">
+					<a href="../../profile.html">PROFILE</a>
+					<a href="../../works.html">WORKS</a>
+					<a href="../../others.html">OTHERS</a>
+				</nav>
+			</div>
+		</header>
+
+		<main class="detail-container container">
+			<section class="detail-block">
+				<div class="detail-media">
+					<img src="../../images/donuts/JDL2024 ticket/JDL2024_ticket.png" alt="作品画像" />
+				</div>
+
+				<div class="detail-info">
+					<h1>JDL2024 紙チケット</h1>
+					<!-- <p class="detail-category">DONUTS / Graphic Design</p> -->
+
+					<table class="detail-table">
+						<tr>
+							<th>制作時期</th>
+							<td>2024年3月</td>
+						</tr>
+						<tr>
+							<th>使用ツール</th>
+							<td>Adobe Illustrator, Clip Studio Paint</td>
+						</tr>
+						<tr>
+							<th>用途</th>
+							<td>当日券/招待券</td>
+						</tr>
+						<tr>
+							<th>担当/役割</th>
+							<td>JDL2024宣伝美術/デザイン・印刷・裁断</td>
+						</tr>
+					</table>
+				</div>
+			</section>
+			<section class="detail-block is-gallery">
+				<div class="detail-info">
+					<div class="detail-description">
+						<p>
+							140×39 mmサイズの紙チケット。
+							半券部分は破線でカットしておき、受付でもぎって回収していました。
+							もぎったあとも本体の左端に色が残り、チケットの区分がわかるようにしています。
+						</p>
+						<div class="detail-inline-img-wrapper">
+							<img src="../../images/donuts/JDL2024 ticket/LINE_ALBUM_Donuts Works_260530_30.jpg" />
+							<span class="detail-img-caption">▲ 印刷・裁断したチケット</span>
+						</div>
+						<p>
+							裁断をきれいにするために、印刷データは反面を逆さにして半券部分を連結させました（赤線は実際の印刷データには載っていません）。
+						</p>
+					</div>
+				</div>
+				<div class="detail-media-grid">
+					<img src="../../images/donuts/JDL2024 ticket/JDL2024_ticket_hiru.png" />
+				</div>
+				<div class="detail-media-grid">
+					<img src="../../images/donuts/JDL2024 ticket/JDL2024_ticket_yoru.png" />
+					<img src="../../images/donuts/JDL2024 ticket/JDL2024_ticket_sponsor.png" />
+					<img src="../../images/donuts/JDL2024 ticket/JDL2024_ticket_shinnyuusei.png" />
+				</div>
+				<div class="detail-media-grid">
+					<img src="../../images/donuts/JDL2024 ticket/JDL2024_ticket_illust.png" />
+				</div>
+			</section>
+
+			<!-- WORKSに戻るボタン -->
+			<div class="back-to-works">
+				<a href="../../works.html#donuts" class="btn-back"
+					><i class="fa-solid fa-arrow-left"></i> WORKS</a
+				>
+			</div>
+		</main>
+
+		<footer>
+			<div class="container">
+				<nav>
+					<a href="../../profile.html">PROFILE</a>
+					<a href="../../works.html">WORKS</a>
+					<a href="../../others.html">OTHERS</a>
+				</nav>
+				<div class="footer-icons">
+					<a href="https://twitter.com" class="icon"
+						><span class="fa-brands fa-x-twitter"></span
+					></a>
+					<a href="https://instagram.com" class="icon"
+						><span class="fa-brands fa-instagram"></span
+					></a>
+					<a href="https://pixiv.net" class="icon"><span class="fa-brands fa-pixiv"></span></a>
+				</div>
+				<p>&copy; 2026 SATO NOBU</p>
+			</div>
+		</footer>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const grids = document.querySelectorAll('.detail-media-grid');
+
+				grids.forEach((grid) => {
+					const images = grid.querySelectorAll('img');
+					images.forEach((img) => {
+						// 画像の本来の比率を計算して適用する関数
+						const setRatio = () => {
+							// 計算式：(横幅 ÷ 縦幅) を算出して flex-grow に設定！
+							const ratio = img.naturalWidth / img.naturalHeight;
+							img.style.flexGrow = ratio;
+
+							// 完璧に高さを揃えるためにCSSのアスペクト比にも設定
+							img.style.aspectRatio = ratio;
+						};
+
+						// 画像が既に読み込まれていればすぐ実行、まだなら読み込みを待ってから実行
+						if (img.complete) {
+							setRatio();
+						} else {
+							img.addEventListener('load', setRatio);
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
